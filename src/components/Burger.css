@@ -1,0 +1,14 @@
+.burger {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    cursor: pointer;
+}
+
+.line {
+    width: 32px;
+height: 6px;
+margin: 4px;
+background-color: grey;
+border-radius: 10px;
+}
