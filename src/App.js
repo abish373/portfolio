@@ -15,17 +15,7 @@ import Resume from './components/resume/Resume';
 function App() {
 
   const [sidemenu, setSideMenu] = useState(0)
-  // const [loading, setLoading] = useState(true)
-
-  // useEffect(() => {
-
-  //   window.addEventListener('load', () => {
-  //     setLoading(false)
-  //   })
-
-  // },[])
-
-
+ 
 
   let Main = () => (
     <>
@@ -51,13 +41,7 @@ function App() {
     </>
   )
 
-  // if(loading) {
-  //   return (
-  //     <div style={{width: '100vw', height: '100vh', position: 'fixed', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Loading...</div>
-  //   )
-  // }
-
-
+ 
   return (
     <BrowserRouter>
       <Swipeable onSwipedRight={() => setSideMenu(2)} onSwipedLeft={() => setSideMenu(0)} >

@@ -1,8 +1,11 @@
 import React from 'react'
+import SocialIcons from '../socialicon/SocialIcons'
 import './About.css'
 
 function About() {
     return (
+        <>
+        <SocialIcons />
         <div className="about">
             <div className="about-container">
                 <div className="about-wrapper">
@@ -15,6 +18,7 @@ function About() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

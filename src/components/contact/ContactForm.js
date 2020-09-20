@@ -1,11 +1,14 @@
 import React from 'react'
 import NavBar from '../menu/NavBar'
+import SocialIcons from '../socialicon/SocialIcons'
 import './contactform.css'
 
 function ContactForm() {
 
 
     return (
+        <>
+        <SocialIcons />
         <div className="contact-form">
             <NavBar />
             <div className="form-wrapper">
@@ -20,6 +23,7 @@ function ContactForm() {
                 </form>
             </div>
         </div>
+        </>
     )
 }
 
