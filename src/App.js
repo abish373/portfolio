@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import SocialIcons from './components/socialicon/SocialIcons';
@@ -15,6 +15,17 @@ import Resume from './components/resume/Resume';
 function App() {
 
   const [sidemenu, setSideMenu] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+
+    window.addEventListener('load', () => {
+      setLoading(false)
+    })
+
+  },[])
+
+
 
   let Main = () => (
     <>
@@ -39,6 +50,12 @@ function App() {
       <NavBar sidemenu={sidemenu} setSideMenu={setSideMenu} />
     </>
   )
+
+  if(loading) {
+    return (
+      <div style={{width: '100vw', height: '100vh', position: 'fixed', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Loading...</div>
+    )
+  }
 
 
   return (
