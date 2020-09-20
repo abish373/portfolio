@@ -11,7 +11,7 @@
     height: 100vh;
 }
 
-form {
+.form {
     background-color: white;
     opacity: 0.5;
     width: 350px;
