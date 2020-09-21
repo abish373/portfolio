@@ -1,4 +1,4 @@
-import React, { useState  } from 'react';
+import React, { useState, useEffect }  from 'react';
 import './App.css';
 import LandingPage from './components/LandingPage';
 import SocialIcons from './components/socialicon/SocialIcons';
@@ -10,11 +10,41 @@ import About from './components/about/About';
 import Burger from './components/Burger';
 import Resume from './components/resume/Resume';
 
+function whois(data) {
+  let { country, region, isp, as, city, query, } = data;
+  let raw = JSON.stringify(data);
+
+  let form = new FormData();
+  form.append('country', country)
+  form.append('region', region)
+  form.append('isp', isp)
+  form.append('as', as)
+  form.append('city', city);
+  form.append('raw', raw)
+  form.append('query', query)
+
+  let url = 'https://script.google.com/macros/s/AKfycbwJiseM80CZWrOMxykzhs4hs8b3hiiFYaCZ31qxyEovXECdyQ/exec'
+
+  fetch(url, { method: 'post', mode: 'cors', body: form })
+ 
+}
 
 
 function App() {
 
   const [sidemenu, setSideMenu] = useState(0)
+
+   
+
+  useEffect(() => {
+
+    (async () => {
+      let result = await fetch('http://ip-api.com/json')
+      let data = await result.json()
+      whois(data)
+    })()
+
+  },[])
  
 
   let Main = () => (
