@@ -11,17 +11,18 @@ import Burger from './components/Burger';
 import Resume from './components/resume/Resume';
 
 function whois(data) {
-  let { country, region, isp, as, city, query, } = data;
+  let { country_name, IPv4 } = data;
   let raw = JSON.stringify(data);
+  let today = new Date();
+  let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   let form = new FormData();
-  form.append('country', country)
-  form.append('region', region)
-  form.append('isp', isp)
-  form.append('as', as)
-  form.append('city', city);
+  form.append('country', country_name)
   form.append('raw', raw)
-  form.append('query', query)
+  form.append('query', IPv4)
+  form.append('time', time)
+  form.append('date', date)
 
   let url = 'https://script.google.com/macros/s/AKfycbwJiseM80CZWrOMxykzhs4hs8b3hiiFYaCZ31qxyEovXECdyQ/exec'
 
@@ -39,7 +40,7 @@ function App() {
   useEffect(() => {
 
     (async () => {
-      let result = await fetch('http://ip-api.com/json')
+      let result = await fetch('https://geoip-db.com/json/')
       let data = await result.json()
       whois(data)
     })()
